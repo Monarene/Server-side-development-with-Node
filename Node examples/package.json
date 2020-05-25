@@ -1,0 +1,16 @@
+{
+  "name": "node-examples",
+  "version": "1.0.0",
+  "description": "SImple node applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "keywords": [
+    "node",
+    "examples"
+  ],
+  "author": "Michael Mekuleyi",
+  "license": "ISC"
+}
