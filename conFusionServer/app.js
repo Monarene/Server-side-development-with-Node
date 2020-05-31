@@ -1,14 +1,20 @@
+// Introducing all the modules
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
+var mongoose = require("mongoose");
+var Dishes = require("./models/dishes");
 var logger = require("morgan");
 
+// Introducing all the routes
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var promotionRouter = require("./routes/promotionRouter");
 var leaderRouter = require("./routes/leaderRouter");
 var dishRouter = require("./routes/dishRouter");
+
+var url = "mongodb://localhost:27017/conFusion";
 
 var app = express();
 
@@ -43,5 +49,16 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
+
+// Connecting the app to the db
+const connect = mongoose.connect(url);
+connect.then(
+  (db) => {
+    console.log("Connected correctly to server");
+  },
+  (err) => {
+    console.log(err);
+  }
+);
 
 module.exports = app;

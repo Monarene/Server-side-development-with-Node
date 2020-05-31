@@ -15,6 +15,7 @@
   "author": "Michael Mekuleyi",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^5.1.7"
+    "mongoose": "^5.1.7",
+    "mongoose-currency": "^0.2.0"
   }
 }
