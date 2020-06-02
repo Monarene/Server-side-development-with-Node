@@ -14,7 +14,7 @@ promotionRouter
       .then(
         (promotions) => {
           res.statusCode = 200;
-          res.setHeader("Content-Type", "application-json");
+          res.setHeader("Content-Type", "application/json");
           res.json(promotions);
         },
         (err) => next(err)
