@@ -154,7 +154,7 @@ dishRouter
     );
   })
   .delete((req, res, next) => {
-    Dishes.findById(req.param.dishId).then(
+    Dishes.findById(req.params.dishId).then(
       (dish) => {
         if (dish != null) {
           for (var i = dish.comments.length - 1; i >= 0; i--) {
@@ -179,12 +179,12 @@ dishRouter
   });
 
 dishRouter
-  .route("/:dishId/comments/:commentsId")
+  .route("/:dishId/comments/:commentId")
   .get((req, res, next) => {
     Dishes.findById(req.params.dishId)
       .then(
         (dish) => {
-          if (dish != null && dish.comments.id(req.params.commentId)) {
+          if (dish != null && dish.comments.id(req.params.commentId) != null) {
             res.statusCode = 200;
             res.setHeader("Content-Type", "application/json");
             res.json(dish.comments.id(req.params.commentId));
@@ -214,7 +214,7 @@ dishRouter
   .put((req, res, next) => {
     Dishes.findById(req.params.dishId).then(
       (dish) => {
-        if (dish != null && dish.comments.id(req.params.commentId != null)) {
+        if (dish != null && dish.comments.id(req.params.commentId) != null) {
           if (req.body.rating) {
             dish.comments.id(req.params.commentId).rating = req.body.rating;
           }
