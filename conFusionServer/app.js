@@ -54,7 +54,7 @@ const auth = (req, res, next) => {
     var user = auth[0];
     var pass = auth[1];
     if (user == "admin" && pass == "password") {
-      res.session.user = "admin";
+      req.session.user = "admin";
       next(); // authorized
     } else {
       var err = new Error("You are not authenticated!");
