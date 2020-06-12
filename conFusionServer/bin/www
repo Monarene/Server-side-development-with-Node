@@ -48,6 +48,7 @@ secureServer.listen(app.get("secPort"), () => {
 });
 secureServer.on("error", onError);
 secureServer.on("listening", onListening);
+
 /**
  * Normalize a port into a number, string, or false.
  */
