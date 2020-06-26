@@ -10,6 +10,9 @@ const { facebook } = require("../config");
 favoriteRouter.use(bodyParser.json());
 favoriteRouter
   .route("/")
+  .options(cors.corsWithOptions, (req, res) => {
+    res.sendStatus(200);
+  })
   .get(cors.cors, verifyUser, (req, res, next) => {
     console.log(req);
     Favorites.find({ user: req.user._id })
@@ -86,6 +89,9 @@ const concatDishes = () => {
 
 favoriteRouter
   .route("/:dishId")
+  .options(cors.corsWithOptions, (req, res) => {
+    res.sendStatus(200);
+  })
   .get(cors.cors, verifyUser, (req, res, next) => {
     Favorites.findOne({ user: req.user._id })
       .then(
