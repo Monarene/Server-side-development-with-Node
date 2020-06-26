@@ -5,9 +5,11 @@ var User = require("../models/users");
 var passport = require("passport");
 var authenticate = require("../authentiate");
 const cors = require("./cors");
-const { route } = require("./dishRouter");
 
 router.use(bodyParser.json());
+router.options("*", cors.corsWithOptions, (req, res) => {
+  res.sendStatus(200);
+});
 
 router
   .route("/")
